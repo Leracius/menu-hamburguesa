@@ -30,5 +30,7 @@ export const MenuContainer = styled.div`
     background-color: #0066b2;
     color: white;
     font-size: 25px;
-    
+    @media (max-width: 768px){
+        width: 100%;
+    }
 `

@@ -13,7 +13,7 @@ const MenuBurguer = () => {
     <HeaderStyled>
         <Container onClick={handleClick}>
             <i id="bars" className="fa-solid fa-bars fa-2xl"></i>
-                <MenuContainer style={{ transform: isToggled ? "translate(-300px) ": "translate(0px) " }}>
+                <MenuContainer style={{ transform: isToggled ? "translate(-100%) ": "translate(0) " }}>
                     Contenido
                </MenuContainer>
         </Container>
