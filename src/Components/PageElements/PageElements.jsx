@@ -5,8 +5,9 @@ import { FooterStyled, MainStyled } from './PageElementsStyles'
 const PageElements = () => {
   return (
     <>
-    <MainStyled></MainStyled>
-    <FooterStyled></FooterStyled>
+    <MainStyled>
+
+    </MainStyled>
     </>
   )
 }
