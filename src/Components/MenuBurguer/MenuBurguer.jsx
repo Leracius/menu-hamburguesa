@@ -14,9 +14,14 @@ const MenuBurguer = () => {
     <HeaderStyled>
         <Container onClick={handleClick}>
             <i id="bars" className="fa-solid fa-bars fa-2xl"></i>
-                <MenuContainer style={{ transform: isToggled ? "translateY(0%) ": "translateY(-150%)" }}>
+                {
+                  isToggled?
+                  <MenuContainer active>
                   <h1>Menu Hamburguesa</h1>
-               </MenuContainer>
+                  </MenuContainer>
+                  :<MenuContainer inactive/>
+                }
+
         </Container>
         <Cart></Cart>
     </HeaderStyled>

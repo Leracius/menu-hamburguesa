@@ -1,13 +1,15 @@
 import React from 'react'
-import { FooterStyled, MainStyled } from './PageElementsStyles'
+import { MainStyled } from './PageElementsStyles'
 
 
 const PageElements = () => {
   return (
     <>
-    <MainStyled>
+      <MainStyled>
+        
+      </MainStyled>
+      
 
-    </MainStyled>
     </>
   )
 }

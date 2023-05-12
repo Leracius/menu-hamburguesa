@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
     width: 50px;
@@ -7,11 +7,10 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid white;
     border-radius: 5px;
     cursor: pointer;
     i{
-        color: white;
+        color: #4747ff;
     }
 `
 export const MenuContainer = styled.div`
@@ -27,13 +26,31 @@ export const MenuContainer = styled.div`
     flex-direction: column;
     align-items: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #0066b2;
     color: white;
     font-size: 25px;
+    
+    ${(props) => 
+        props.active &&
+        css`
+        transform: translate(0%);
+        border-radius: 10px;
+        margin: 20px;
+        border: 3px solid #4747ff;
+        padding: 10px;
+
+        
+        `
+    }
+    ${(props) => 
+        props.inactive &&
+        css`
+        transform: translate(-150%);
+        `
+    }
     h1{
         font-size: 22px;
     }
     @media (max-width: 768px){
-        width: 100%;
+        width: 80%;
     }
 `

@@ -5,7 +5,7 @@ const ContainerStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #002D62;
+  background-color: white;
 `;
 
 export const HeaderStyled = styled(ContainerStyled)`
@@ -19,6 +19,8 @@ export const FooterStyled = styled(ContainerStyled)`
 // calcula la altura del footer y el header para adaptarse al 100%
 export const MainStyled = styled.main`
   width: 100%;
+  display: flex;
+  justify-content: center;
   height: calc(100vh - 150px);
-  background-color: #00308F;
+  background-color: gainsboro;
 `;
