@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const InputContainer = styled.form`
     width: 300px;
     background-color: white;
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    gap: 5px;
+    gap: 10px;
     input{
         border: none;
         background-color: gainsboro;

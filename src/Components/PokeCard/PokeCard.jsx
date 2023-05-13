@@ -5,8 +5,11 @@ import axios from "axios"
 
 
 const PokeCard = () => {
-    const [data, setData] = useState(4)
+    const [data, setData] = useState("")
     const [pokemon, setPokemon] = useState("")
+    const [titulo, setTitulo] = useState("BUSCA TU POKEMON")
+
+
 
     const handleSubmit = async (e, pokemon) =>{
         e.preventDefault();
@@ -16,7 +19,8 @@ const PokeCard = () => {
 
             const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
             setData(data)
-        
+            setTitulo(data.name.toUpperCase())
+
         }catch(err){
             console.log(err);
         }
@@ -25,16 +29,18 @@ const PokeCard = () => {
 
     const { name, order, sprites, types } = data
 
-    console.log(types[0].type.name);
+
   
+    // const tipo = types[0].type.name
+
     return (
     <>
 
     <CardStyled>
-        <img src={sprites?.other.home.front_default}></img>
+        <img src={sprites?sprites.other.home.front_default:"https://i.pinimg.com/originals/9f/b1/25/9fb125f1fedc8cc62ab5b20699ebd87d.gif"}></img>
         <div>
-            <h2>{name}</h2>
-            <p>Tipo: {types[0].type.name}</p>
+            <h2>{titulo}</h2>
+            <p>{types?types[0].type.name:""}</p>
         </div>
     </CardStyled>
     <InputContainer
@@ -42,6 +48,7 @@ const PokeCard = () => {
     onSubmit={(e)=>{
         handleSubmit(e, pokemon)
         setPokemon("")
+        setTitulo("BUSCA TU POKEMON")
     }}
 
     >
