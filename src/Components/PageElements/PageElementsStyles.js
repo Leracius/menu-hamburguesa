@@ -20,7 +20,9 @@ export const FooterStyled = styled(ContainerStyled)`
 export const MainStyled = styled.main`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: calc(100vh - 150px);
   background-color: gainsboro;
 `;
