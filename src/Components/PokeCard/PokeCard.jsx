@@ -33,6 +33,7 @@ const PokeCard = (props) => {
             }else{
                 const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
                 setData(data)
+                setError(false)
                 setIsloading(false)
                 setJoshEnable(false)
             }

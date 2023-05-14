@@ -13,16 +13,11 @@ const MenuBurguer = () => {
     return (
     <HeaderStyled>
         <Container onClick={handleClick}>
-            <i id="bars" className="fa-solid fa-bars fa-2xl"></i>
+            <i id="bars" className="fa-solid fa-bars fa-2xl" color='white'></i>
                 {
                   isToggled?
                   <MenuContainer active>
-                    <div>
-                      <h1>POKE-FINDER</h1>
-                    </div>
-                    <div>
-                      <h1>NOTAS</h1>
-                    </div>
+                    <h1>hola</h1>
                   </MenuContainer>
                   :<MenuContainer inactive>
                 </MenuContainer>

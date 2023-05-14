@@ -12,6 +12,7 @@ export const Container = styled.div`
     i{
         color: white;
     }
+
 `
 export const MenuContainer = styled.div`
     width: 350px;
@@ -29,6 +30,11 @@ export const MenuContainer = styled.div`
     gap: 30px;
     align-items: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    @media (max-width: 768px){
+        width: 100%;
+        margin: 0;
+        border: none;
+    }
     div{
         width: 100%;
         height: 200px;
@@ -38,8 +44,6 @@ export const MenuContainer = styled.div`
     }h1{
         text-align: center;
         font-size: 20px;
-        margin: 10px;
-        padding: 10px;
         background-color: white;
         border-radius: 5px;
     }
@@ -53,8 +57,6 @@ export const MenuContainer = styled.div`
         border-radius: 15px;
         margin: 20px;
         border: 3px solid #4747ff;
-        padding: 10px;
-
         `
     }
     ${(props) => 
@@ -64,7 +66,5 @@ export const MenuContainer = styled.div`
         `
     }
 
-    @media (max-width: 768px){
-        width: 80%;
-    }
+
 `
