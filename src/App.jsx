@@ -1,12 +1,15 @@
 import MenuBurguer from "./Components/MenuBurguer/MenuBurguer"
-import PageElements from "./Components/PageElements/PageElements"
+import { MainStyled } from "./Components/PageElements/PageElementsStyles"
 import { FooterStyled } from "./Components/PageElements/PageElementsStyles"
+import PokeCard from "./Components/PokeCard/PokeCard"
 
 function App() {
   return (
     <>
       <MenuBurguer></MenuBurguer>
-      <PageElements></PageElements>
+        <MainStyled>
+          <PokeCard></PokeCard>
+        </MainStyled>
       <FooterStyled></FooterStyled>
     </>
   )

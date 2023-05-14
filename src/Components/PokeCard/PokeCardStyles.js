@@ -1,8 +1,30 @@
 import styled from "styled-components";
+import { css } from "styled-components";
+
+export const PokeContainer = styled.div`
+    position: absolute;
+    background-color: white;
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+    ${(props) => 
+        props.active &&
+        css`
+        transform: translateY(0%);
+        border-radius: 10px;
+        border: 3px solid #4747ff;
+        padding: 10px;
+
+        `
+    }
+    ${(props) => 
+        props.inactive &&
+        css`
+        transform: translateY(-150%);
+        `
+    }
+`
 
 export const InputContainer = styled.form`
     width: 300px;
-    background-color: white;
     padding: 10px;
     border-radius: 10px;
     display: flex;
@@ -17,6 +39,8 @@ export const InputContainer = styled.form`
         border-radius: 5px;   
         color: black;
         padding: 5px;
+        outline: none;
+        padding-left: 10px;
     }
     button{
         background-color: #4747ff;
@@ -25,6 +49,7 @@ export const InputContainer = styled.form`
         border: none;
         border-radius: 5px;
         color: white;
+        transform: rotate(180deg);
     }
 `
 
@@ -32,7 +57,6 @@ export const CardStyled = styled.div`
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 350px;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
@@ -41,15 +65,16 @@ export const CardStyled = styled.div`
         border-radius: 5px;
     }
     div{
-        padding: 20px;
         text-align: center;
         h2{
             font-size: 24px;
             margin-bottom: 10px;
+            text-align: center;
+            width: 100%;
         }
         p{
             font-size: 16px;
-            margin-bottom: 10px;
+            text-align: center;
         }
     }
 ` 

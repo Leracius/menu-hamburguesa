@@ -1,63 +1,91 @@
 import React, { useState } from 'react'
-import { CardStyled, InputContainer } from './PokeCardStyles'
-import { AiOutlineSearch } from "react-icons/ai"
+import { CardStyled, InputContainer, PokeContainer } from './PokeCardStyles'
+import { MdOutlineCatchingPokemon } from "react-icons/md"
 import axios from "axios"
-
+import Josh from '../Josh/Josh'
 
 const PokeCard = () => {
     const [data, setData] = useState("")
     const [pokemon, setPokemon] = useState("")
-    const [titulo, setTitulo] = useState("BUSCA TU POKEMON")
 
-
+    const [joshEnable, setJoshEnable] = useState(true)
+    const [isLoading, setIsloading] = useState(false)
+    const [error, setError] = useState(false)
 
     const handleSubmit = async (e, pokemon) =>{
         e.preventDefault();
         
+        // setData(null)
+        setData(false)
+        setError(false)
+        setIsloading(true)
+        setJoshEnable(false)
+
         try{
             let selectedPokemon = pokemon.toLowerCase().trim()
+            if(selectedPokemon == ""){
+                setError(true)
+                setData(false)
+                setIsloading(false)
+            }else{
+                const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                setData(data)
+                setIsloading(false)
+                setJoshEnable(false)
+            }
 
-            const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
-            setData(data)
-            setTitulo(data.name.toUpperCase())
+
 
         }catch(err){
-            console.log(err);
+            setError("Pokemon no encontrado")
+            setIsloading(false)
+            setJoshEnable(false)
+            setData(false)
         }
 
     }
 
-    const { name, order, sprites, types } = data
-
-
+    const { name, order, sprites, types } =  data
   
-    // const tipo = types[0].type.name
-
     return (
-    <>
-
+    <PokeContainer active>
     <CardStyled>
-        <img src={sprites?sprites.other.home.front_default:"https://i.pinimg.com/originals/9f/b1/25/9fb125f1fedc8cc62ab5b20699ebd87d.gif"}></img>
+        {joshEnable && <Josh message={"busca tu pokemon"}></Josh>}
+        {isLoading && 
+        <>
+        <img src='https://i.pinimg.com/originals/9f/b1/25/9fb125f1fedc8cc62ab5b20699ebd87d.gif'/>
+        </>
+        }
+        {data &&
+        <>
+        <img src={sprites.other.home.front_default}></img>
         <div>
-            <h2>{titulo}</h2>
-            <p>{types?types[0].type.name:""}</p>
-        </div>
+            <h2>{name.toUpperCase()}</h2>
+            <p>{types[0].type.name.toUpperCase()}</p>
+        </div>  
+        </>   
+        }
+        {error && <Josh message={"No se encontró el pokemon, prueba con un numero del 1 al 905, o busca por su nombre"}></Josh>}
+
     </CardStyled>
     <InputContainer
     
     onSubmit={(e)=>{
         handleSubmit(e, pokemon)
         setPokemon("")
-        setTitulo("BUSCA TU POKEMON")
     }}
 
     >
-        <input placeholder='search'
+    <input 
+        value={pokemon}
+        placeholder='search'
         onChange={(e)=> setPokemon(e.target.value)}
         />
-        <button type='submit'><AiOutlineSearch size={24} /></button>
-    </InputContainer>    
-    </>
+        <button type='submit'><MdOutlineCatchingPokemon size={24}/></button>
+    </InputContainer>   
+    </PokeContainer>
+ 
+
   )
 }
 

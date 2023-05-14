@@ -17,9 +17,15 @@ const MenuBurguer = () => {
                 {
                   isToggled?
                   <MenuContainer active>
-                  <h1>Menu Hamburguesa</h1>
+                    <div>
+                      <h1>POKE-FINDER</h1>
+                    </div>
+                    <div>
+                      <h1>NOTAS</h1>
+                    </div>
                   </MenuContainer>
-                  :<MenuContainer inactive/>
+                  :<MenuContainer inactive>
+                </MenuContainer>
                 }
 
         </Container>
