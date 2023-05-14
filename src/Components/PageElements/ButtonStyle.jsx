@@ -26,5 +26,12 @@ export const StyledCard = styled.div`
       background-color: #4747ff;
       color: white;
     }
+    @media (max-width: 768px){
+      position: relative;
+      button{
+        margin: 10px;
+      }
+
+    }
 `
 

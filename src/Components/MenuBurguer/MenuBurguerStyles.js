@@ -10,7 +10,7 @@ export const Container = styled.div`
     border-radius: 5px;
     cursor: pointer;
     i{
-        color: #4747ff;
+        color: white;
     }
 `
 export const MenuContainer = styled.div`

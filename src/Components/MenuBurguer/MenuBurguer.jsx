@@ -29,7 +29,7 @@ const MenuBurguer = () => {
                 }
 
         </Container>
-        <Cart></Cart>
+        {/* <Cart></Cart> */}
     </HeaderStyled>
     
   )

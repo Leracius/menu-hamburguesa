@@ -20,12 +20,13 @@ function App() {
     <>
       <MenuBurguer></MenuBurguer>
         <MainStyled>
-          <Card show={!showCard} ></Card>
-          <PokeCard show={showCard}></PokeCard>
-            <StyledCard>
+        <StyledCard>
               <button onClick={handleClick} ><CgPokemon size={60}/></button>
               <button onClick={handleClick}><RiTodoLine size={50} /></button>
           </StyledCard>
+          <Card show={!showCard} ></Card>
+          <PokeCard show={showCard}></PokeCard>
+
         </MainStyled>
       <FooterStyled></FooterStyled>
     </>
