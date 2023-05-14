@@ -1,18 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { JoshMessage, MessageBubble, TalkJosh } from './JoshStyled'
 
-const Josh = ({message}) => {
-    const [isVisible, setIsVisible] = useState(true);
-
-    // useEffect(() => {
-    //     const timeoutId = setTimeout(() => {
-    //         setIsVisible(false);
-    //     }, time);
-
-    //     return () => {
-    //         clearTimeout(timeoutId);
-    //     };
-    // }, []);
+const Josh = ({message, active}) => {
+    const [isVisible, setIsVisible] = useState(active);
 
     return (
         <>  
@@ -26,6 +16,9 @@ const Josh = ({message}) => {
                     </TalkJosh>
                     </>              
             )}
+            {
+                !isVisible && <h1></h1>
+            }
         </JoshMessage>
         </>
     );

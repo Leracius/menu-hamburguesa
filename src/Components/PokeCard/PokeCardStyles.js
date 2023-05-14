@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { css } from "styled-components";
 
 export const PokeContainer = styled.div`
-    position: absolute;
+    /* position: absolute; */
     background-color: white;
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     ${(props) => 
@@ -18,7 +18,7 @@ export const PokeContainer = styled.div`
     ${(props) => 
         props.inactive &&
         css`
-        transform: translateY(-150%);
+        transform: translateY(-300%);
         `
     }
 `

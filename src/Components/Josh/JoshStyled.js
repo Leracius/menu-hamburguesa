@@ -18,14 +18,6 @@ export const MessageBubble = styled.div`
     justify-content: center;
     background-color: gainsboro;
     border-radius: 10px;
-    &::before{
-        content: "";
-        position: absolute;
-        border-style: solid;
-        border-width: 10px;
-        border-color: gainsboro transparent transparent transparent;
-        bottom: 30px;
-    }
 `
 export const TalkJosh = styled.div`
     background-size: cover;

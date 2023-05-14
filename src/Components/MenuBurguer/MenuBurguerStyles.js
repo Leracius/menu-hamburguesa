@@ -14,8 +14,9 @@ export const Container = styled.div`
     }
 `
 export const MenuContainer = styled.div`
-    width: 300px;
+    width: 350px;
     position: absolute;
+    z-index: 20;
     top: 75px;
     bottom: 75px;
     left: 0;
