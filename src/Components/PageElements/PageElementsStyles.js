@@ -25,4 +25,12 @@ export const MainStyled = styled.main`
   align-items: center;
   height: calc(100vh - 150px);
   background-color: gainsboro;
+  @media (max-width: 768px){
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: white;
+    
+    }
 `;
+
+

@@ -4,7 +4,7 @@ export const CardContainer = styled.div`
     margin: 10px;
     border-radius: 10px;
     background-color: white;
-    padding: 20px;
+    padding: 20px 5px 30px 5px;
     border: 3px solid #4747ff;
 `
 export const CardStyled = styled.div`
@@ -32,6 +32,9 @@ export const CardNote = styled.div`
     padding: 10px;
     text-align: center;
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     h1 {
         margin: 0;
         padding: 0;
@@ -40,5 +43,13 @@ export const CardNote = styled.div`
         color: gray;
         text-align: center;
     }
-    
+    button{
+        background-color: transparent;
+        width: 40px;
+        height: 40px;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 `

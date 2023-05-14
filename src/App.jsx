@@ -21,7 +21,6 @@ function App() {
       <MenuBurguer></MenuBurguer>
         <MainStyled>
           <Card show={!showCard} ></Card>
-          
           <PokeCard show={showCard}></PokeCard>
             <StyledCard>
               <button onClick={handleClick} ><CgPokemon size={60}/></button>
