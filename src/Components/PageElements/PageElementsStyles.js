@@ -10,7 +10,11 @@ const ContainerStyled = styled.div`
 
 export const HeaderStyled = styled(ContainerStyled)`
   height: 75px;
-  background-color: #4747ff;
+  background-color: white;
+    @media (max-width: 768px){
+        background-color: #4747ff;
+    
+    }
 `;
 
 export const FooterStyled = styled(ContainerStyled)`

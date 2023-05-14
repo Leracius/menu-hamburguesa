@@ -10,7 +10,10 @@ export const Container = styled.div`
     border-radius: 5px;
     cursor: pointer;
     i{
-        color: white;
+        color: #4747ff;
+        @media (max-width: 768px){
+            color: white;
+    }
     }
 
 `
