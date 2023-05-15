@@ -1,6 +1,6 @@
 import { useState } from "react"
 import MenuBurguer from "./Components/MenuBurguer/MenuBurguer"
-import { StyledCard } from "./Components/PageElements/ButtonStyle"
+import { StyledButton, StyledCard } from "./Components/PageElements/ButtonStyle"
 import { MainStyled } from "./Components/PageElements/PageElementsStyles"
 import { FooterStyled } from "./Components/PageElements/PageElementsStyles"
 import PokeCard from "./Components/PokeCard/PokeCard"
@@ -10,25 +10,30 @@ import Card from './Components/Card/Card'
 
 function App() {
   const [showCard, setShowCard] = useState(true)
+  const [showPoke, setShowPoke] = useState(false)
 
-  const handleClick = () =>{
-    setShowCard(!showCard)
+  const handleClickC = () =>{
+    setShowCard(true)
+    setShowPoke(false)
   }
-
+  const handleClickP= () =>{
+    setShowPoke(true)
+    setShowCard(false)
+  }
 
   return (
     <>
       <MenuBurguer></MenuBurguer>
         <MainStyled>
         <StyledCard>
-              <button onClick={handleClick} ><CgPokemon size={60}/></button>
-              <button onClick={handleClick}><RiTodoLine size={50} /></button>
+              <StyledButton onClick={handleClickP}><CgPokemon size={60}/></StyledButton>
+              <StyledButton onClick={handleClickC}><RiTodoLine size={50} /></StyledButton>
           </StyledCard>
-          <Card show={!showCard} ></Card>
-          <PokeCard show={showCard}></PokeCard>
+          <Card show={showCard}></Card>
+          <PokeCard show={showPoke}></PokeCard>
 
         </MainStyled>
-      <FooterStyled></FooterStyled>
+      <FooterStyled/>
     </>
   )
 }

@@ -9,7 +9,16 @@ export const StyledCard = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    button{
+
+    @media (max-width: 768px){
+      position: relative;
+      button{
+        margin: 10px;
+      }
+
+    }
+`
+export const StyledButton = styled.button`
         transition: all 0.3s cubic-bezier(0.92, 0.01, 0.35, 0.99);
         background-color: white;
         color:#4747ff;
@@ -21,17 +30,16 @@ export const StyledCard = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    button:hover{
-      background-color: #4747ff;
-      color: white;
-    }
-    @media (max-width: 768px){
-      position: relative;
-      button{
-        margin: 10px;
-      }
+        z-index: 2;
+        border: 5px solid #4747ff;
 
-    }
+        @media (max-width: 768px){
+          margin: 10px;
+        }
+      
+        &:hover{
+          background-color: #4747ff;
+          color: white;
+        }
 `
 

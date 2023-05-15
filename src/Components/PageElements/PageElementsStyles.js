@@ -26,10 +26,16 @@ export const MainStyled = styled.main`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   height: calc(100vh - 150px);
   background-color: gainsboro;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+  background-color: #f5f5f5;
+}
+
   @media (max-width: 768px){
         flex-direction: column;
         justify-content: flex-start;

@@ -3,6 +3,7 @@ import { css } from "styled-components";
 
 export const PokeContainer = styled.div`
     /* position: absolute; */
+    margin-top: 10px;
     background-color: white;
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     ${(props) => 
