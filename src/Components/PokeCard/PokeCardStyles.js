@@ -10,9 +10,9 @@ export const PokeContainer = styled.div`
         props.active &&
         css`
         transform: translateY(0%);
-        border-radius: 10px;
-        border: 3px solid #4747ff;
+        border-radius: 15px;
         padding: 15px;
+        border: 4px solid #4747ff;
 
         `
     }

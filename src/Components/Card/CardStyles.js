@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
     margin: 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     background-color: white;
-    padding: 20px 5px 30px 5px;
-    border: 3px solid #4747ff;
+    padding: 20px 5px 15px 5px;
+    border: 4px solid #4747ff;
 `
 export const CardStyled = styled.div`
     display: flex;
@@ -19,7 +19,6 @@ export const CardText = styled.h1`
     text-align: center;
     font-weight: 800;
     font-size: 30px;
-    margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `
