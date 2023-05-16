@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
 export const StyledCard = styled.div`
     width: 300px;
@@ -32,14 +33,18 @@ export const StyledButton = styled.button`
         align-items: center;
         z-index: 2;
         border: 5px solid #4747ff;
+        cursor: pointer;
 
         @media (max-width: 768px){
           margin: 10px;
         }
-      
-        &:hover{
+
+        ${(props) => 
+        props.touched && css`
           background-color: #4747ff;
           color: white;
-        }
+        `
+    }
+
 `
 

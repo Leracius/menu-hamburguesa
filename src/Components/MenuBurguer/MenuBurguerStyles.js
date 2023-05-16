@@ -18,6 +18,9 @@ export const Container = styled.div`
 
 `
 export const MenuContainer = styled.div`
+
+    transform: translate(-150%);
+
     width: 350px;
     position: absolute;
     z-index: 20;
@@ -60,12 +63,6 @@ export const MenuContainer = styled.div`
         border-radius: 15px;
         margin: 20px;
         border: 3px solid #4747ff;
-        `
-    }
-    ${(props) => 
-        props.inactive &&
-        css`
-        transform: translate(-150%);
         `
     }
 

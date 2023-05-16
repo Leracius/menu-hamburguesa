@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
 export const CardContainer = styled.div`
     margin: 10px;
@@ -6,6 +7,16 @@ export const CardContainer = styled.div`
     background-color: white;
     padding: 20px 5px 15px 5px;
     border: 4px solid #4747ff;
+    transform: translateY(-150%);
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+    ${(props) => 
+        props.active &&
+        css`
+        transform: translateY(0);
+        `
+    }
+
+
 `
 export const CardStyled = styled.div`
     display: flex;

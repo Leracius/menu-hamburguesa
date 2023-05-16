@@ -49,9 +49,7 @@ const Card = (props) => {
   };
 
   return (
-    <div>
-      {isActive && (
-        <CardContainer>
+        <CardContainer active={isActive}>
           <CardStyled>
             <CardText>JUST DO LIST ✅ </CardText>
             <Box
@@ -87,8 +85,6 @@ const Card = (props) => {
             })}
           </CardStyled>
         </CardContainer>
-      )}
-    </div>
   );
 };
 

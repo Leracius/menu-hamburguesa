@@ -52,9 +52,7 @@ const PokeCard = (props) => {
     const { name, order, sprites, types } =  data
   
     return (
-        <div>
-            {
-                isActive && <><PokeContainer active>
+            <PokeContainer active={isActive}>
                 <CardStyled>
                     {joshEnable && <Josh message={"BUSCA TU POKEMON"} active={true}></Josh>}
                     {isLoading && 
@@ -91,12 +89,8 @@ const PokeCard = (props) => {
                     />
                     <button type='submit'><MdOutlineCatchingPokemon size={24}/></button>
                 </InputContainer>   
-                </PokeContainer>
-                </>
-            }{!isActive && 
-                <PokeContainer inactive/>
-            }
-        </div>
+            </PokeContainer>
+
 
   )
 }

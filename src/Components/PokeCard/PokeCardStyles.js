@@ -2,17 +2,19 @@ import styled from "styled-components";
 import { css } from "styled-components";
 
 export const PokeContainer = styled.div`
-    /* position: absolute; */
+    position: absolute;
     margin-top: 10px;
     background-color: white;
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+    border-radius: 15px;
+    padding: 15px;
+    border: 4px solid #4747ff;
+    transform: translateY(-220%);
     ${(props) => 
         props.active &&
         css`
+        ;
         transform: translateY(0%);
-        border-radius: 15px;
-        padding: 15px;
-        border: 4px solid #4747ff;
 
         `
     }

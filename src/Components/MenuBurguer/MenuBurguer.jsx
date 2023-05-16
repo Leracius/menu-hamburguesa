@@ -14,15 +14,7 @@ const MenuBurguer = () => {
     <HeaderStyled>
         <Container onClick={handleClick}>
             <i id="bars" className="fa-solid fa-bars fa-2xl" color='white'></i>
-                {
-                  isToggled?
-                  <MenuContainer active>
-                    <h1>hola</h1>
-                  </MenuContainer>
-                  :<MenuContainer inactive>
-                </MenuContainer>
-                }
-
+            <MenuContainer active={isToggled}></MenuContainer>
         </Container>
         {/* <Cart></Cart> */}
     </HeaderStyled>
