@@ -18,11 +18,9 @@ export const PokeContainer = styled.div`
 
         `
     }
-    ${(props) => 
-        props.inactive &&
-        css`
-        transform: translateY(-300%);
-        `
+      @media (max-width: 768px){
+        margin-top: 100px;
+    
     }
 `
 

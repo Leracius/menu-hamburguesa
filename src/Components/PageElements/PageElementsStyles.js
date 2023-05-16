@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 const ContainerStyled = styled.div`
   width: 100%;
   display: flex;
@@ -19,6 +20,10 @@ export const HeaderStyled = styled(ContainerStyled)`
 
 export const FooterStyled = styled(ContainerStyled)`
   height: 75px;
+  @media (max-width: 768px){
+    display: hidden;
+  }
+
 `;
 
 // calcula la altura del footer y el header para adaptarse al 100%
@@ -40,7 +45,7 @@ export const MainStyled = styled.main`
         flex-direction: column;
         justify-content: flex-start;
         background-color: white;
-    
+        overflow-y: hidden;
     }
 `;
 

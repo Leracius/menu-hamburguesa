@@ -1,5 +1,8 @@
 import styled, { css } from "styled-components";
 
+const azulito = "#4747ff"
+const theme = "white"
+
 export const Container = styled.div`
     width: 50px;
     height: 50px;
@@ -10,17 +13,15 @@ export const Container = styled.div`
     border-radius: 5px;
     cursor: pointer;
     i{
-        color: #4747ff;
+        color: ${azulito};
         @media (max-width: 768px){
-            color: white;
+            color: ${theme};
     }
     }
 
 `
 export const MenuContainer = styled.div`
-
     transform: translate(-150%);
-
     width: 350px;
     position: absolute;
     z-index: 20;
@@ -30,7 +31,7 @@ export const MenuContainer = styled.div`
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     display: flex;
     justify-content: space-between;
-    background-color: white;
+    background-color: ${theme};
     flex-wrap: wrap;
     flex-direction: column;
     gap: 30px;
@@ -39,13 +40,15 @@ export const MenuContainer = styled.div`
     @media (max-width: 768px){
         width: 100%;
         margin: 0;
+        border-radius: 0;
         border: none;
+        
     }
     div{
         width: 100%;
         height: 200px;
         border-radius: 10px;
-        color: #4747ff;
+        color: ${azulito};
         background-color: gainsboro;
     }h1{
         text-align: center;
@@ -62,7 +65,8 @@ export const MenuContainer = styled.div`
         transform: translate(0%);
         border-radius: 15px;
         margin: 20px;
-        border: 3px solid #4747ff;
+        border: 4px solid ${azulito};
+        width: 350px;
         `
     }
 
