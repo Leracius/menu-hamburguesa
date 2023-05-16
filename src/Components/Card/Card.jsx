@@ -40,11 +40,12 @@ const Card = (props) => {
   };
 
   const handleDeleteNote = (id) => {
-    setNotes(notes.filter((note) => note.id !== id));
+    confirm("Desea borrar esta nota?") &&
+    setNotes(notes.filter((note) => note.id !== id))
   };
 
   const handleDeleteAllNotes = () => {
-    setNotes([]);
+    confirm("Desea borrar las notas?") && setNotes([])
     console.log(note);
   };
 
@@ -73,7 +74,11 @@ const Card = (props) => {
               <Button variant="contained" onClick={handleAddNote}>
                 Agregar nota
               </Button>
-              <Button onClick={handleDeleteAllNotes}>Eliminar todas</Button>
+              {
+                notes==![]?
+                <></>
+                :<Button onClick={handleDeleteAllNotes}>Eliminar todas</Button>
+              }
             </Stack>
             {notes.map((note) => {
               return (

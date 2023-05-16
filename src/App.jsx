@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import MenuBurguer from "./Components/MenuBurguer/MenuBurguer"
 import { StyledButton, StyledCard } from "./Components/PageElements/ButtonStyle"
 import { MainStyled } from "./Components/PageElements/PageElementsStyles"
@@ -6,6 +6,7 @@ import { FooterStyled } from "./Components/PageElements/PageElementsStyles"
 import PokeCard from "./Components/PokeCard/PokeCard"
 import { CgPokemon } from 'react-icons/cg'
 import { RiTodoLine } from 'react-icons/ri'
+import { BiHomeHeart } from 'react-icons/bi'
 import Card from './Components/Card/Card'
 
 const ActionTypes = {
@@ -26,7 +27,7 @@ const reducer = (state, action) => {
 
 function App() {
   const initialState = {
-    showCard: true,
+    showCard: false,
     showPoke: false
   };
 
@@ -40,17 +41,24 @@ function App() {
     dispatch({ type: ActionTypes.SHOW_POKE });
   };
 
+  const [on, setOn] = useState(false)
+
+  const handleClick = () =>{
+    setOn(!on)
+  }
   
   return (
     <>
       <MenuBurguer></MenuBurguer>
       <MainStyled>
         <StyledCard>
+          <StyledButton touched={on} show onClick={handleClick}><BiHomeHeart size={53}/></StyledButton>
           <StyledButton touched={state.showPoke} show onClick={handleClickP}><CgPokemon size={60}/></StyledButton>
           <StyledButton touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} /></StyledButton>
         </StyledCard>
         <Card show={state.showCard}></Card>
         <PokeCard show={state.showPoke}></PokeCard>
+
       </MainStyled>
       <FooterStyled/>
     </>

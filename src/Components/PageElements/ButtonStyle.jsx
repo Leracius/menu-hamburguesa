@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { css } from "styled-components";
 
 export const StyledCard = styled.div`
-    width: 300px;
+    width: 400px;
     height: 100;
     position: absolute;
     bottom:0;
@@ -27,7 +27,7 @@ export const StyledButton = styled.button`
         height: 70px;
         border: none;
         border-radius: 50%;
-        margin: 30px;
+        margin: 0 20px 40px 20px;
         display: flex;
         justify-content: center;
         align-items: center;

@@ -12,6 +12,15 @@ export const Container = styled.div`
     align-items: center;
     border-radius: 5px;
     cursor: pointer;
+    h1{
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 80%;
+        width: 200px;
+        font-size: 20px;
+        color: #4747ff;
+    }
     i{
         color: ${azulito};
         @media (max-width: 768px){
