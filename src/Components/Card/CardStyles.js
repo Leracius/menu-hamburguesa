@@ -15,8 +15,6 @@ export const CardContainer = styled.div`
         transform: translateY(0);
         `
     }
-
-
 `
 export const CardStyled = styled.div`
     display: flex;

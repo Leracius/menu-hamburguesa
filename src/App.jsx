@@ -41,7 +41,7 @@ function App() {
     dispatch({ type: ActionTypes.SHOW_POKE });
   };
 
-  const [on, setOn] = useState(false)
+  const [on, setOn] = useState("")
 
   const handleClick = () =>{
     setOn(!on)
@@ -52,7 +52,7 @@ function App() {
       <MenuBurguer></MenuBurguer>
       <MainStyled>
         <StyledCard>
-          <StyledButton touched={on} show onClick={handleClick}><BiHomeHeart size={53}/></StyledButton>
+          <StyledButton black={on} show onClick={handleClick}><BiHomeHeart size={53}/></StyledButton>
           <StyledButton touched={state.showPoke} show onClick={handleClickP}><CgPokemon size={60}/></StyledButton>
           <StyledButton touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} /></StyledButton>
         </StyledCard>
