@@ -44,43 +44,13 @@ export const StyledButton = styled.button`
           props.touched && css`
           background-color: #4747ff;
           color: white;
-          animation: myAnim 2s ease 0s 1 normal forwards;
         `}
         ${(props) =>
           props.black && css`
           background-color: black;
           color: tomato;
           border: 5px solid tomato;
-          animation: myAnim 2s ease 0s 1 normal forwards;
         `}
-        @keyframes myAnim {
-	0% {
-		animation-timing-function: ease-out;
-		transform: scale(1);
-		transform-origin: center center;
-	}
-
-	10% {
-		animation-timing-function: ease-in;
-		transform: scale(0.91);
-	}
-
-	17% {
-		animation-timing-function: ease-out;
-		transform: scale(0.98);
-	}
-
-	33% {
-		animation-timing-function: ease-in;
-		transform: scale(0.87);
-	}
-
-	45% {
-		animation-timing-function: ease-out;
-		transform: scale(1);
-	}
-}
-
 
 `
 
