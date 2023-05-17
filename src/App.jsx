@@ -53,14 +53,14 @@ function App() {
     <>
       <MenuBurguer></MenuBurguer>
       <MainStyled>
-        <ThemeCard></ThemeCard>
-        {/* <StyledCard>
+        {/* <ThemeCard></ThemeCard> */}
+        <StyledCard>
           <StyledButton black={on} show onClick={handleClick}><BiHomeHeart size={53}/></StyledButton>
           <StyledButton touched={state.showPoke} show onClick={handleClickP}><CgPokemon size={60}/></StyledButton>
           <StyledButton touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} /></StyledButton>
         </StyledCard>
         <Card show={state.showCard}></Card>
-        <PokeCard show={state.showPoke}></PokeCard> */}
+        <PokeCard show={state.showPoke}></PokeCard>
       </MainStyled>
       <FooterStyled/>
     </>
