@@ -9,7 +9,7 @@ export const PokeContainer = styled.div`
     border-radius: 15px;
     padding: 15px;
     border: ${(props) => (props.darkMode ? '5px solid red' : '5px solid #4747ff')};
-    transform: translateY(-220%);
+    transform: translateY(-400%);
     ${(props) => 
         props.active &&
         css`
@@ -34,7 +34,7 @@ export const InputContainer = styled.form`
     gap: 10px;
     input{
         border: none;
-        background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
+        background-color: rgba(128, 128, 128, 0.512);
         height: 30px;
         width: 250px;
         border-radius: 5px;   
@@ -58,13 +58,19 @@ export const CardStyled = styled.div`
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     display: flex;
     flex-direction: column;
+    height: 300px;
     width: 300px;
     border-radius: 10px;
     padding: 10px;
     color: ${(props) => (props.darkMode ? 'white' : '#202020')};
     img{
-        height: 250px;
+        position: absolute;
+        height: 300px;
         border-radius: 5px;
+        /* transform: scale(1.3) ;
+        -webkit-transform: scale(1.3) ;
+        -moz-transform: scale(1.3) ; */
+        z-index: -1;
     }
     div{
         transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
@@ -73,7 +79,9 @@ export const CardStyled = styled.div`
             font-size: 24px;
             margin-bottom: 10px;
             text-align: center;
-            width: 100%;
+            /* width: 100%; */
+            background-color: rgba(128, 128, 128, 0.512);
+            border-radius: 5px;
         }
         p{
             font-size: 16px;

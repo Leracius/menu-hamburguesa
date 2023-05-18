@@ -34,9 +34,6 @@ export const StyledButton = styled.button`
         align-items: center;
         z-index: 2;
         cursor: pointer;
-        &:hover{
-          border: ${(props) => (props.darkMode ? '4px solid red' : '4px solid #4747ff')};;
-        }
 
         @media (max-width: 768px){
           border: none;

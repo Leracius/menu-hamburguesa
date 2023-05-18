@@ -73,7 +73,7 @@ const PokeCard = (props) => {
             <img src={sprites.other.home.front_default}></img>
             <div>
               <h2>{name.toUpperCase()}</h2>
-              <p>{types[0].type.name.toUpperCase()}</p>
+              {/* <p>{types[0].type.name.toUpperCase()}</p> */}
             </div>  
           </>   
         }

@@ -50,6 +50,7 @@ function App() {
 
   const handleClick = () =>{
     setOn(!on)
+    setTheme(toggleDarkMode())
   }
   
   const dispatchReducer = useDispatch()
@@ -57,18 +58,23 @@ function App() {
 
   const setTheme = useDispatch();
 
+
+
   return (
     <>
       <MenuBurguer></MenuBurguer>
       <MainStyled  darkMode={darkMode}  >
 
         <StyledCard>
-          {
-            !darkMode && <StyledButton darkMode={darkMode} onClick={() => setTheme(toggleDarkMode())}><BsFillSunFill size={53}/></StyledButton>
-          }
-                    {
-            darkMode && <StyledButton darkMode={darkMode} onClick={() => setTheme(toggleDarkMode())}><BsMoonStarsFill size={45}/></StyledButton>
-          }
+          <StyledButton touched={on} darkMode={darkMode} onClick={handleClick}>
+            {
+              darkMode && <BsMoonStarsFill size={45}/>
+            }
+                        {
+              !darkMode && <BsFillSunFill size={45}/>
+            }
+            </StyledButton>
+            
           <StyledButton darkMode={darkMode} touched={state.showPoke} show onClick={handleClickP}><CgPokemon size={60}/></StyledButton>
           <StyledButton darkMode={darkMode} touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} /></StyledButton>
         </StyledCard>
