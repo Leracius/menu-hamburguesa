@@ -33,10 +33,12 @@ export const CardStyled = styled.div`
         padding: 5px;
         outline: none;
         padding-left: 10px;
+        transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     }
    
 `
 export const CardText = styled.h1`
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     color: ${(props) => (props.darkMode ? 'white' : 'black')};
     text-align: center;
     font-weight: 800;

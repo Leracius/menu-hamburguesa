@@ -21,6 +21,7 @@ export const StyledCard = styled.div`
 `
 
 export const StyledButton = styled.button`
+        transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
         background-color: ${(props) => (props.darkMode ? 'black' : 'white')};
         color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
         border: none;
