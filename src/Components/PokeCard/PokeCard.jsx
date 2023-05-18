@@ -3,6 +3,7 @@ import { CardStyled, InputContainer, PokeContainer } from './PokeCardStyles';
 import { MdOutlineCatchingPokemon } from "react-icons/md";
 import axios from "axios";
 import Josh from '../Josh/Josh';
+import { useSelector } from 'react-redux';
 
 const PokeCard = (props) => {
   const isActive = props.show;
@@ -11,6 +12,7 @@ const PokeCard = (props) => {
   const [joshEnable, setJoshEnable] = useState(true);
   const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState(false);
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   useEffect(() => {
     const lastPokemon = localStorage.getItem('lastPokemon');
@@ -58,8 +60,8 @@ const PokeCard = (props) => {
   const { name, order, sprites, types } = data;
 
   return (
-    <PokeContainer active={isActive}>
-      <CardStyled>
+    <PokeContainer darkMode={darkMode}  active={isActive}>
+      <CardStyled darkMode={darkMode}>
         {joshEnable && <Josh message={"BUSCA TU POKEMON"} active={true}></Josh>}
         {isLoading && 
           <>
@@ -78,7 +80,7 @@ const PokeCard = (props) => {
         {error && <Josh message={"No se encontró el pokemon, prueba con un número del 1 al 905, o busca por su nombre"} active={true}></Josh>}
       </CardStyled>
     
-      <InputContainer
+      <InputContainer darkMode={darkMode}
         onSubmit={(e) => {
           handleSubmit(e, pokemon);
           setPokemon("");

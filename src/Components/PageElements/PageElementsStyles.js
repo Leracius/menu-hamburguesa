@@ -11,7 +11,8 @@ const ContainerStyled = styled.div`
 
 export const HeaderStyled = styled(ContainerStyled)`
   height: 75px;
-  background-color: white;
+  background-color: ${(props) => (props.darkMode ? '#202020' : 'white')};
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     @media (max-width: 768px){
         background-color: #4747ff;
     
@@ -20,6 +21,8 @@ export const HeaderStyled = styled(ContainerStyled)`
 
 export const FooterStyled = styled(ContainerStyled)`
   height: 75px;
+  background-color: ${(props) => (props.darkMode ? '#202020' : 'white')};
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
   @media (max-width: 768px){
     display: hidden;
   }
@@ -34,7 +37,8 @@ export const MainStyled = styled.main`
   justify-content: start;
   align-items: center;
   height: calc(100vh - 150px);
-  background-color: gainsboro;
+  background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
   overflow-x: hidden;
   overflow-y: scroll;
   ::-webkit-scrollbar {

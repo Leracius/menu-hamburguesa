@@ -22,18 +22,18 @@ export const StyledCard = styled.div`
 
 export const StyledButton = styled.button`
         transition: all 0.3s cubic-bezier(0.92, 0.01, 0.35, 0.99);
-        background-color: white;
-        color:#4747ff;
+        background-color: ${(props) => (props.darkMode ? 'black' : 'white')};
+        color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
         width: 70px;
         height: 70px;
-        border: none;
+        border: ${(props) => (props.darkMode ? '4px solid red' : 'none')};
         border-radius: 50%;
         margin: 0 20px 40px 20px;
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 2;
-        border: 5px solid #4747ff;
+        border: ${(props) => (props.darkMode ? '3 px solid red' : '5px solid #4747ff')};
         cursor: pointer;
 
         @media (max-width: 768px){
@@ -42,13 +42,13 @@ export const StyledButton = styled.button`
 
         ${(props) => 
           props.touched && css`
-          background-color: #4747ff;
+          background-color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
           color: white;
         `}
         ${(props) =>
           props.black && css`
           background-color: black;
-          color: tomato;
+          color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
           border: 5px solid tomato;
         `}
 

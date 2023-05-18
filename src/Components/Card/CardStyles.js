@@ -4,9 +4,10 @@ import { css } from "styled-components";
 export const CardContainer = styled.div`
     margin: 10px;
     border-radius: 15px;
-    background-color: white;
+    background-color: ${(props) => (props.darkMode ? 'black' : 'white')};
+
     padding: 20px 5px 15px 5px;
-    border: 4px solid #4747ff;
+    border: ${(props) => (props.darkMode ? '4px solid red' : '4px solid #4747ff')};
     transform: translateY(-150%);
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     ${(props) => 
@@ -20,11 +21,12 @@ export const CardStyled = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: white;
+    background-color: transparent;
     border-radius: 10px;
    
 `
 export const CardText = styled.h1`
+    color: ${(props) => (props.darkMode ? 'white' : 'black')};
     text-align: center;
     font-weight: 800;
     font-size: 30px;
@@ -43,6 +45,7 @@ export const CardNote = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: ${(props) => (props.darkMode ? 'white' : 'black')};
     h1 {
         margin: 0;
         padding: 0;

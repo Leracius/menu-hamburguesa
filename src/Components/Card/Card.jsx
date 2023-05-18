@@ -5,13 +5,14 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { CardContainer, CardNote, CardStyled, CardText } from './CardStyles';
 import { FiDelete } from 'react-icons/fi'
+import { useSelector } from 'react-redux';
 
 
 const Card = (props) => {
   const isActive = props.show;
   const [notes, setNotes] = useState([]);
   const [note, setNote] = useState('');
-
+  const darkMode = useSelector((state) => state.theme.darkMode);
   const [error, setError] =useState("Escribe tu nota 👾")
 
   const handleNoteChange = (event) => {
@@ -50,9 +51,9 @@ const Card = (props) => {
   };
 
   return (
-        <CardContainer active={isActive}>
+        <CardContainer darkMode={darkMode} active={isActive}>
           <CardStyled>
-            <CardText>JUST DO LIST ✅ </CardText>
+            <CardText darkMode={darkMode}>JUST DO LIST ✅ </CardText>
             <Box
               component="form"
               sx={{
@@ -82,7 +83,7 @@ const Card = (props) => {
             </Stack>
             {notes.map((note) => {
               return (
-                <CardNote key={note.id}>
+                <CardNote darkMode={darkMode} key={note.id}>
                   <h1>{note.content}</h1>
                   <button onClick={() => handleDeleteNote(note.id)}><FiDelete size={30} color='tomato' /></button>
                 </CardNote>

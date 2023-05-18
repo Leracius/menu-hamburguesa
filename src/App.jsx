@@ -9,6 +9,8 @@ import { RiTodoLine } from 'react-icons/ri'
 import { BiHomeHeart } from 'react-icons/bi'
 import Card from './Components/Card/Card'
 import ThemeCard from './Components/Heroe/Heroe';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleDarkMode } from './redux/Theme/ThemeSlice';
 
 
 const ActionTypes = {
@@ -49,20 +51,26 @@ function App() {
     setOn(!on)
   }
   
+  const dispatchReducer = useDispatch()
+  const darkMode = useSelector((state) => state.theme.darkMode)
+
+  const setTheme = useDispatch();
+
   return (
     <>
       <MenuBurguer></MenuBurguer>
-      <MainStyled>
-        {/* <ThemeCard></ThemeCard> */}
+      <MainStyled  darkMode={darkMode}  >
+
         <StyledCard>
-          <StyledButton black={on} show onClick={handleClick}><BiHomeHeart size={53}/></StyledButton>
-          <StyledButton touched={state.showPoke} show onClick={handleClickP}><CgPokemon size={60}/></StyledButton>
-          <StyledButton touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} /></StyledButton>
+          <StyledButton darkMode={darkMode} onClick={() => setTheme(toggleDarkMode())}><BiHomeHeart size={53}/></StyledButton>
+          <StyledButton darkMode={darkMode} touched={state.showPoke} show onClick={handleClickP}><CgPokemon size={60}/></StyledButton>
+          <StyledButton darkMode={darkMode} touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} /></StyledButton>
         </StyledCard>
         <Card show={state.showCard}></Card>
         <PokeCard show={state.showPoke}></PokeCard>
+        {/* <ThemeCard></ThemeCard> */}
       </MainStyled>
-      <FooterStyled/>
+      <FooterStyled darkMode={darkMode}/>
     </>
   )
 }

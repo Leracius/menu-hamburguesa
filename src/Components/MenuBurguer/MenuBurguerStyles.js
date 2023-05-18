@@ -12,6 +12,7 @@ export const Container = styled.div`
     align-items: center;
     border-radius: 5px;
     cursor: pointer;
+    color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
     h1{
         margin: 0;
         padding: 0;
@@ -22,7 +23,6 @@ export const Container = styled.div`
         color: #4747ff;
     }
     i{
-        color: ${azulito};
         @media (max-width: 768px){
             color: ${theme};
     }
@@ -40,7 +40,8 @@ export const MenuContainer = styled.div`
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     display: flex;
     justify-content: space-between;
-    background-color: ${theme};
+    background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
+    border: ${(props) => (props.darkMode ? '3px solid tomato' : '3px solid #4747ff')};
     flex-wrap: wrap;
     flex-direction: column;
     gap: 30px;
@@ -74,7 +75,7 @@ export const MenuContainer = styled.div`
         transform: translate(0%);
         border-radius: 15px;
         margin: 20px;
-        border: 4px solid ${azulito};
+        border: ${(props) => (props.darkMode ? '3px solid red' : '3px solid #4747ff')};
         width: 350px;
         `
     }
