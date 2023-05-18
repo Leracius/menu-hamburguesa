@@ -6,11 +6,12 @@ import { FooterStyled } from "./Components/PageElements/PageElementsStyles"
 import PokeCard from "./Components/PokeCard/PokeCard"
 import { CgPokemon } from 'react-icons/cg'
 import { RiTodoLine } from 'react-icons/ri'
-import { BiHomeHeart } from 'react-icons/bi'
+import { BsFillSunFill } from 'react-icons/bs'
 import Card from './Components/Card/Card'
 import ThemeCard from './Components/Heroe/Heroe';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleDarkMode } from './redux/Theme/ThemeSlice';
+import { BsMoonStarsFill } from 'react-icons/bs'
 
 
 const ActionTypes = {
@@ -62,7 +63,12 @@ function App() {
       <MainStyled  darkMode={darkMode}  >
 
         <StyledCard>
-          <StyledButton darkMode={darkMode} onClick={() => setTheme(toggleDarkMode())}><BiHomeHeart size={53}/></StyledButton>
+          {
+            !darkMode && <StyledButton darkMode={darkMode} onClick={() => setTheme(toggleDarkMode())}><BsFillSunFill size={53}/></StyledButton>
+          }
+                    {
+            darkMode && <StyledButton darkMode={darkMode} onClick={() => setTheme(toggleDarkMode())}><BsMoonStarsFill size={45}/></StyledButton>
+          }
           <StyledButton darkMode={darkMode} touched={state.showPoke} show onClick={handleClickP}><CgPokemon size={60}/></StyledButton>
           <StyledButton darkMode={darkMode} touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} /></StyledButton>
         </StyledCard>

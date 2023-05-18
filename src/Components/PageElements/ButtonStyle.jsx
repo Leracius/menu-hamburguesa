@@ -10,7 +10,7 @@ export const StyledCard = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     @media (max-width: 768px){
       position: relative;
       button{
@@ -21,23 +21,24 @@ export const StyledCard = styled.div`
 `
 
 export const StyledButton = styled.button`
-        transition: all 0.3s cubic-bezier(0.92, 0.01, 0.35, 0.99);
         background-color: ${(props) => (props.darkMode ? 'black' : 'white')};
         color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
+        border: none;
         width: 70px;
         height: 70px;
-        border: ${(props) => (props.darkMode ? '4px solid red' : 'none')};
         border-radius: 50%;
         margin: 0 20px 40px 20px;
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 2;
-        border: ${(props) => (props.darkMode ? '3 px solid red' : '5px solid #4747ff')};
         cursor: pointer;
+        &:hover{
+          border: ${(props) => (props.darkMode ? '4px solid red' : '4px solid #4747ff')};;
+        }
 
         @media (max-width: 768px){
-          margin: 10px;
+          border: none;
         }
 
         ${(props) => 
@@ -45,12 +46,8 @@ export const StyledButton = styled.button`
           background-color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
           color: white;
         `}
-        ${(props) =>
-          props.black && css`
-          background-color: black;
-          color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
-          border: 5px solid tomato;
-        `}
 
 `
+
+
 

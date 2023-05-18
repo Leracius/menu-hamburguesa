@@ -1,30 +1,33 @@
 import styled from "styled-components";
 
 
-const ContainerStyled = styled.div`
+
+export const HeaderStyled = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
-`;
-
-export const HeaderStyled = styled(ContainerStyled)`
   height: 75px;
   background-color: ${(props) => (props.darkMode ? '#202020' : 'white')};
   transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     @media (max-width: 768px){
-        background-color: #4747ff;
+      background-color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
     
     }
 `;
 
-export const FooterStyled = styled(ContainerStyled)`
+export const FooterStyled = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 75px;
   background-color: ${(props) => (props.darkMode ? '#202020' : 'white')};
   transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
   @media (max-width: 768px){
     display: hidden;
+    background-color: ${(props) => (props.darkMode ? 'black' : 'white')};
+
   }
 
 `;
@@ -41,14 +44,10 @@ export const MainStyled = styled.main`
   transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
   overflow-x: hidden;
   overflow-y: scroll;
-  ::-webkit-scrollbar {
-  background-color: #f5f5f5;
-}
-
   @media (max-width: 768px){
         flex-direction: column;
         justify-content: flex-start;
-        background-color: white;
+        background-color: ${(props) => (props.darkMode ? 'black' : 'white')};
         overflow-y: hidden;
     }
 `;

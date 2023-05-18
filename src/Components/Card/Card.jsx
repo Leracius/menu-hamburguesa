@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { CardContainer, CardNote, CardStyled, CardText } from './CardStyles';
@@ -29,7 +28,7 @@ const Card = (props) => {
       setNotes([...notes, newNote]);
       setNote('');
     } else {
-      setError("Intenta con 'agarrar la pala'");
+      alert("Intenta escribir algo");
     }
   };
 
@@ -52,7 +51,7 @@ const Card = (props) => {
 
   return (
         <CardContainer darkMode={darkMode} active={isActive}>
-          <CardStyled>
+          <CardStyled darkMode={darkMode}>
             <CardText darkMode={darkMode}>JUST DO LIST ✅ </CardText>
             <Box
               component="form"
@@ -62,23 +61,21 @@ const Card = (props) => {
               noValidate
               autoComplete="off"
             >
-              <TextField
-                onKeyDown={handleKeyDown}
-                id="outlined-basic"
-                label={error}
-                variant="outlined"
-                value={note}
-                onChange={handleNoteChange}
+              <input type="text"
+              onKeyDown={handleKeyDown}
+              onChange={handleNoteChange}
+              value={note}
+              placeholder='Agrega una nota'
               />
             </Box>
             <Stack direction="row" spacing={2}>
-              <Button variant="contained" onClick={handleAddNote}>
+              <Button color={darkMode?"error": "primary"} variant="contained" onClick={handleAddNote}>
                 Agregar nota
               </Button>
               {
                 notes==![]?
                 <></>
-                :<Button onClick={handleDeleteAllNotes}>Eliminar todas</Button>
+                :<Button color={darkMode?"error": "primary"}  onClick={handleDeleteAllNotes}>Eliminar todas</Button>
               }
             </Stack>
             {notes.map((note) => {

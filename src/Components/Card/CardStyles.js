@@ -4,11 +4,11 @@ import { css } from "styled-components";
 export const CardContainer = styled.div`
     margin: 10px;
     border-radius: 15px;
-    background-color: ${(props) => (props.darkMode ? 'black' : 'white')};
+    background-color: ${(props) => (props.darkMode ? '#202020' : 'white')};
 
     padding: 20px 5px 15px 5px;
     border: ${(props) => (props.darkMode ? '4px solid red' : '4px solid #4747ff')};
-    transform: translateY(-150%);
+    transform: translateY(-200%);
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     ${(props) => 
         props.active &&
@@ -23,6 +23,17 @@ export const CardStyled = styled.div`
     flex-direction: column;
     background-color: transparent;
     border-radius: 10px;
+    input{
+        border: none;
+        background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
+        height: 30px;
+        width: 250px;
+        border-radius: 5px;   
+        color: ${(props) => (props.darkMode ? 'white' : 'black')};
+        padding: 5px;
+        outline: none;
+        padding-left: 10px;
+    }
    
 `
 export const CardText = styled.h1`
@@ -34,9 +45,10 @@ export const CardText = styled.h1`
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `
 export const CardNote = styled.div`
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     width: 90%;
     height: 30px;
-    background-color: #DEDEE0 ;
+    background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
     border-radius: 5px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 10px;
@@ -45,7 +57,6 @@ export const CardNote = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: ${(props) => (props.darkMode ? 'white' : 'black')};
     h1 {
         margin: 0;
         padding: 0;
@@ -53,6 +64,7 @@ export const CardNote = styled.div`
         font-weight: 600;
         color: gray;
         text-align: center;
+        transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     }
     button{
         background-color: transparent;

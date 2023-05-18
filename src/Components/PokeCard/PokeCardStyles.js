@@ -4,7 +4,7 @@ import { css } from "styled-components";
 export const PokeContainer = styled.div`
     position: absolute;
     margin-top: 10px;
-    background-color: ${(props) => (props.darkMode ? 'black' : 'white')};
+    background-color: ${(props) => (props.darkMode ? '#202020' : 'white')};
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     border-radius: 15px;
     padding: 15px;
@@ -34,7 +34,7 @@ export const InputContainer = styled.form`
     gap: 10px;
     input{
         border: none;
-        background-color: ${(props) => (props.darkMode ? '#202020' : 'gainsboro')};
+        background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
         height: 30px;
         width: 250px;
         border-radius: 5px;   
@@ -61,7 +61,7 @@ export const CardStyled = styled.div`
     width: 300px;
     border-radius: 10px;
     padding: 10px;
-    color: ${(props) => (props.darkMode ? 'white' : 'black')};
+    color: ${(props) => (props.darkMode ? 'white' : '#202020')};
     img{
         height: 250px;
         border-radius: 5px;
