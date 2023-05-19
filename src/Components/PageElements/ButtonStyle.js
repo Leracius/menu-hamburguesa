@@ -44,12 +44,11 @@ export const StyledButton = styled.button`
         top: 0;
         right: 0;
         color: white;
-        background-color: red;
-        border-radius: 10px;
+        border: 3px solid white;
+        background-color: ${(props) => (props.darkMode ? 'red' :'#4747ff')};
+        border-radius: 15px;
         padding: 0;
           @media (max-width: 768px) {
-            color: red;
-            background-color: none;
             width: 20px;
             height: 20px;
           }
