@@ -49,8 +49,7 @@ export const StyledButton = styled.button`
         border-radius: 15px;
         padding: 0;
           @media (max-width: 768px) {
-            width: 20px;
-            height: 20px;
+            color: transparent;
           }
         }
 

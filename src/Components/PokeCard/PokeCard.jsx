@@ -59,6 +59,8 @@ const PokeCard = (props) => {
 
   const { name, order, sprites, types } = data;
 
+  console.log(data);
+
   return (
     <PokeContainer darkMode={darkMode}  active={isActive}>
       <CardStyled darkMode={darkMode}>
@@ -73,7 +75,16 @@ const PokeCard = (props) => {
             <img src={sprites.other.home.front_default}></img>
             <div>
               <h2>{name.toUpperCase()}</h2>
-              {/* <p>{types[0].type.name.toUpperCase()}</p> */}
+              <p>{types[0].type.name.toUpperCase()}</p>
+
+              {stats?.slice(0, 4).map((stat) => (
+					        <StatusBar
+						        key={stat.stat.name}
+						        {...stat}
+						        firstType={types[0].type.name}
+					      />
+				        ))}
+              
             </div>  
           </>   
         }

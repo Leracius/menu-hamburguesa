@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 const darkModeStyles = css`
-  background-color: #202020;
+  background-color: black;
 `;
 
 const lightModeStyles = css`
@@ -9,6 +9,7 @@ const lightModeStyles = css`
 `;
 
 export const CardContainer = styled.div`
+
   margin: 10px 10px 50px 10px;
   border-radius: 15px;
   ${(props) => (props.darkMode ? darkModeStyles : lightModeStyles)}
@@ -20,6 +21,7 @@ export const CardContainer = styled.div`
   @media (max-width: 768px) {
     border: none;
     margin: 10px 10px 300px 10px;
+    width: 100%;
   }
 
   ${(props) =>
@@ -38,7 +40,7 @@ export const CardStyled = styled.div`
 
   input {
     border: none;
-    background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
+    background-color: ${(props) => (props.darkMode ? '#202020' : 'gainsboro')};
     height: 30px;
     width: 250px;
     border-radius: 5px;
@@ -52,7 +54,7 @@ export const CardStyled = styled.div`
 
 export const CardText = styled.h1`
   transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
-  color: ${(props) => (props.darkMode ? 'white' : 'black')};
+  color: ${(props) => (props.darkMode ? 'white' : '#202020')};
   text-align: center;
   font-weight: 800;
   font-size: 30px;
@@ -63,7 +65,7 @@ export const CardText = styled.h1`
 export const CardNote = styled.div`
   transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
   width: 90%;
-  background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
+  background-color: ${(props) => (props.darkMode ? '#202020' : 'gainsboro')};
   border-radius: 5px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding: 10px;

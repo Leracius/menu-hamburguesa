@@ -71,7 +71,13 @@ function App() {
     <>
       <MenuBurguer></MenuBurguer>
       <MainStyled  darkMode={darkMode} >
-        <StyledCard>
+
+        <Card show={state.showCard}></Card>
+        <PokeCard show={state.showPoke}></PokeCard>
+        {/* <ThemeCard></ThemeCard> */}
+      </MainStyled>
+      <FooterStyled darkMode={darkMode}>
+      <StyledCard>
           
           <StyledButton touched={on} darkMode={darkMode} onClick={handleClick}>
             {darkMode ? <BsMoonStarsFill size={45} /> : <BsFillSunFill size={45} />}
@@ -81,11 +87,7 @@ function App() {
             {count==0?"":<h1>{count}</h1>}
           </StyledButton>
         </StyledCard>
-        <Card show={state.showCard}></Card>
-        <PokeCard show={state.showPoke}></PokeCard>
-        {/* <ThemeCard></ThemeCard> */}
-      </MainStyled>
-      <FooterStyled darkMode={darkMode}/>
+      </FooterStyled>
     </>
   )
 }
