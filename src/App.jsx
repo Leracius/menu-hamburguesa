@@ -1,17 +1,27 @@
 import React, { useReducer, useState } from 'react';
-import MenuBurguer from "./Components/MenuBurguer/MenuBurguer"
-import { StyledButton, StyledCard } from "./Components/PageElements/ButtonStyle"
+
+// componentes de styled components
 import { MainStyled } from "./Components/PageElements/PageElementsStyles"
 import { FooterStyled } from "./Components/PageElements/PageElementsStyles"
+import { StyledButton, StyledCard } from "./Components/PageElements/ButtonStyle"
+import MenuBurguer from "./Components/MenuBurguer/MenuBurguer"
+
+// componentes
+import Card from './Components/Card/Card'
 import PokeCard from "./Components/PokeCard/PokeCard"
+import ThemeCard from './Components/Heroe/Heroe';
+
+// estado y funcion despachadora
+import { useDispatch, useSelector } from 'react-redux';
+
+// estado de mi store
+import { toggleDarkMode, incrementCounter } from './redux/Theme/ThemeSlice';
+
+// react-icons
+import { BsFillSunFill } from 'react-icons/bs'
+import { BsMoonStarsFill } from 'react-icons/bs'
 import { CgPokemon } from 'react-icons/cg'
 import { RiTodoLine } from 'react-icons/ri'
-import { BsFillSunFill } from 'react-icons/bs'
-import Card from './Components/Card/Card'
-import ThemeCard from './Components/Heroe/Heroe';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleDarkMode } from './redux/Theme/ThemeSlice';
-import { BsMoonStarsFill } from 'react-icons/bs'
 
 
 const ActionTypes = {
@@ -53,30 +63,26 @@ function App() {
     setTheme(toggleDarkMode())
   }
   
-  const dispatchReducer = useDispatch()
   const darkMode = useSelector((state) => state.theme.darkMode)
 
-  const setTheme = useDispatch();
 
+  const setTheme = useDispatch()
+
+  const count = useSelector((state) => state.theme.counter)
+  const setCount = useDispatch()
 
 
   return (
     <>
       <MenuBurguer></MenuBurguer>
-      <MainStyled  darkMode={darkMode}  >
-
+      <MainStyled  darkMode={darkMode} >
         <StyledCard>
+          
           <StyledButton touched={on} darkMode={darkMode} onClick={handleClick}>
-            {
-              darkMode && <BsMoonStarsFill size={45}/>
-            }
-                        {
-              !darkMode && <BsFillSunFill size={45}/>
-            }
-            </StyledButton>
-            
+            {darkMode ? <BsMoonStarsFill size={45} /> : <BsFillSunFill size={45} />}
+          </StyledButton>
           <StyledButton darkMode={darkMode} touched={state.showPoke} show onClick={handleClickP}><CgPokemon size={60}/></StyledButton>
-          <StyledButton darkMode={darkMode} touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} /></StyledButton>
+          <StyledButton darkMode={darkMode} touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} /><h1>{count}</h1></StyledButton>
         </StyledCard>
         <Card show={state.showCard}></Card>
         <PokeCard show={state.showPoke}></PokeCard>

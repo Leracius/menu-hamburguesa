@@ -18,10 +18,6 @@ export const PokeContainer = styled.div`
 
         `
     }
-      @media (max-width: 768px){
-        margin-top: 100px;
-    
-    }
 `
 
 export const InputContainer = styled.form`

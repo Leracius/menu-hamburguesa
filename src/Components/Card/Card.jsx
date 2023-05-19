@@ -6,24 +6,33 @@ import { CardContainer, CardNote, CardStyled, CardText } from './CardStyles';
 import { FiDelete } from 'react-icons/fi';
 import { useSelector } from 'react-redux';
 
+import { useDispatch } from 'react-redux';
+import { incrementCounter } from '../../redux/Theme/ThemeSlice';
+
 const Card = (props) => {
   const isActive = props.show;
   const [notes, setNotes] = useState([]);
   const [note, setNote] = useState('');
+  const [notesCount, setNotesCount] = useState(0); // Estado para el contador de notas
   const darkMode = useSelector((state) => state.theme.darkMode);
-  const [error, setError] = useState("Escribe tu nota 👾");
-
 
   const storedNotes = localStorage.getItem('notes');
 
+  const dispatchsito = useDispatch();
+
+  const handleIncrementCounter = (newValue) => {
+    dispatchsito(incrementCounter(newValue));
+  };
   useEffect(() => {
     if (storedNotes) {
       setNotes(JSON.parse(storedNotes));
+      handleIncrementCounter(JSON.parse(storedNotes).length) 
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes));
+    setNotesCount(notes.length); // Actualizar el estado del contador de notas
   }, [notes]);
 
   const handleNoteChange = (event) => {
@@ -32,15 +41,15 @@ const Card = (props) => {
 
   const handleAddNote = () => {
     if (note.trim() !== '') {
-      setError("Escribe tu nota 👾");
       const newNote = {
         id: Date.now(),
-        content: note
+        content: note,
       };
       setNotes((prevNotes) => [...prevNotes, newNote]);
       setNote('');
+      handleIncrementCounter(notesCount + 1) 
     } else {
-      alert("Intenta escribir algo");
+      alert('Intenta escribir algo');
     }
   };
 
@@ -48,19 +57,23 @@ const Card = (props) => {
     if (event.keyCode === 13) {
       event.preventDefault();
       handleAddNote();
+      setNotesCount()
     }
   };
 
   const handleDeleteNote = (id) => {
-    if (window.confirm("¿Desea borrar esta nota?")) {
+    if (window.confirm('¿Desea borrar esta nota?')) {
       setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
+      handleIncrementCounter(notesCount -1)
     }
   };
 
   const handleDeleteAllNotes = () => {
-    if (window.confirm("¿Desea borrar todas las notas?")) {
+    if (window.confirm('¿Desea borrar todas las notas?')) {
       setNotes([]);
+      handleIncrementCounter(0)
     }
+
   };
 
   return (
@@ -70,7 +83,7 @@ const Card = (props) => {
         <Box
           component="form"
           sx={{
-            '& > :not(style)': { m: 2, width: 300 }
+            '& > :not(style)': { m: 2, width: 300 },
           }}
           noValidate
           autoComplete="off"
@@ -80,23 +93,26 @@ const Card = (props) => {
             onKeyDown={handleKeyDown}
             onChange={handleNoteChange}
             value={note}
-            placeholder='Agrega una nota'
+            placeholder="Agrega una nota"
           />
         </Box>
         <Stack direction="row" spacing={2}>
-          <Button color={darkMode ? "error" : "primary"} variant="contained" onClick={handleAddNote}>
+          <Button color={darkMode ? 'error' : 'primary'} variant="contained" onClick={handleAddNote}>
             Agregar nota
           </Button>
-          {
-            notes.length > 0 &&
-            <Button color={darkMode ? "error" : "primary"} onClick={handleDeleteAllNotes}>Eliminar todas</Button>
-          }
+          {notes.length > 0 && (
+            <Button color={darkMode ? 'error' : 'primary'} onClick={handleDeleteAllNotes}>
+              Eliminar todas
+            </Button>
+          )}
         </Stack>
         {notes.map((note) => {
           return (
             <CardNote darkMode={darkMode} key={note.id}>
               <h1>{note.content}</h1>
-              <button onClick={() => handleDeleteNote(note.id)}><FiDelete size={30} color='tomato' /></button>
+              <button onClick={() => handleDeleteNote(note.id)}>
+                <FiDelete size={30} color="tomato" />
+              </button>
             </CardNote>
           );
         })}
