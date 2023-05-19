@@ -47,6 +47,12 @@ export const StyledButton = styled.button`
         background-color: red;
         border-radius: 10px;
         padding: 0;
+          @media (max-width: 768px) {
+            color: red;
+            background-color: none;
+            width: 20px;
+            height: 20px;
+          }
         }
 
         ${(props) => 

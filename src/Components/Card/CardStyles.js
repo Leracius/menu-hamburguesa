@@ -17,6 +17,11 @@ export const CardContainer = styled.div`
   transform: translateY(-200%);
   transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
 
+  @media (max-width: 768px) {
+    border: none;
+    margin: 10px 10px 300px 10px;
+  }
+
   ${(props) =>
     props.active &&
     css`

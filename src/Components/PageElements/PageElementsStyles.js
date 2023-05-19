@@ -19,6 +19,7 @@ export const HeaderStyled = styled(Container)`
 export const FooterStyled = styled(Container)`
   @media (max-width: 768px) {
     display: hidden;
+    height: 0;
   }
 `;
 
@@ -36,6 +37,7 @@ export const MainStyled = styled.main`
 
   @media (max-width: 768px) {
     background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
+    height: 100vh;
   }
 `;
 

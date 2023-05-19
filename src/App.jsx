@@ -15,7 +15,7 @@ import ThemeCard from './Components/Heroe/Heroe';
 import { useDispatch, useSelector } from 'react-redux';
 
 // estado de mi store
-import { toggleDarkMode, incrementCounter } from './redux/Theme/ThemeSlice';
+import { toggleDarkMode } from './redux/Theme/ThemeSlice';
 
 // react-icons
 import { BsFillSunFill } from 'react-icons/bs'
@@ -63,14 +63,9 @@ function App() {
     setTheme(toggleDarkMode())
   }
   
-  const darkMode = useSelector((state) => state.theme.darkMode)
-
-
   const setTheme = useDispatch()
-
+  const darkMode = useSelector((state) => state.theme.darkMode)
   const count = useSelector((state) => state.theme.counter)
-  const setCount = useDispatch()
-
 
   return (
     <>
@@ -82,7 +77,9 @@ function App() {
             {darkMode ? <BsMoonStarsFill size={45} /> : <BsFillSunFill size={45} />}
           </StyledButton>
           <StyledButton darkMode={darkMode} touched={state.showPoke} show onClick={handleClickP}><CgPokemon size={60}/></StyledButton>
-          <StyledButton darkMode={darkMode} touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} /><h1>{count}</h1></StyledButton>
+          <StyledButton darkMode={darkMode} touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} />
+            {count==0?"":<h1>{count}</h1>}
+          </StyledButton>
         </StyledCard>
         <Card show={state.showCard}></Card>
         <PokeCard show={state.showPoke}></PokeCard>
