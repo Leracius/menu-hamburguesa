@@ -57,7 +57,7 @@ const PokeCard = (props) => {
     }
   }
 
-  const { name, order, sprites, types } = data;
+  const { name, order, sprites, types, stats } = data;
 
   console.log(data);
 
@@ -75,16 +75,7 @@ const PokeCard = (props) => {
             <img src={sprites.other.home.front_default}></img>
             <div>
               <h2>{name.toUpperCase()}</h2>
-              <p>{types[0].type.name.toUpperCase()}</p>
-
-              {stats?.slice(0, 4).map((stat) => (
-					        <StatusBar
-						        key={stat.stat.name}
-						        {...stat}
-						        firstType={types[0].type.name}
-					      />
-				        ))}
-              
+              {/* <p>{types[0].type.name.toUpperCase()}</p> */}
             </div>  
           </>   
         }

@@ -1,26 +1,44 @@
-import React from 'react';
-import { useSelector, useDispatch, Provider } from 'react-redux'; // Agrega el import de Provider
-import { toggleDarkMode } from '../../redux/Theme/ThemeSlice';
-import store from '../../redux/store'; // Importa el store de Redux
-import { Card, Botonsito } from './HeroStyles'
+import { HeoreContainer } from './HeroeStyles'
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { motion } from "framer-motion"
 
-const ThemeCard = () => {
-  const dispatch = useDispatch();
-  const darkMode = useSelector((state) => state.theme.darkMode);
+const Heroe = (props) => {
 
-  return (
-    <Card darkMode={darkMode}>
-      <h2>Theme Card</h2>
-      <p>This is a card component that demonstrates dark and light themes.</p>
-      <Botonsito darkMode={darkMode} onClick={() => dispatch(toggleDarkMode())}>
-        {darkMode ? 'Light Mode' : 'Dark Mode'}
-      </Botonsito>
-    </Card>
-  );
-};
+    const [currentTime, setCurrentTime] = useState(new Date());
+    const darkMode = useSelector((state) => state.theme.darkMode);
 
-const Heroe = () => (
-    <ThemeCard />
-);
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentTime(new Date());
+      }, 1000);
+  
+      return () => clearInterval(interval);
+    }, []);
+  
+    const hourOptions = {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: false,
+    };
+  
+    const formattedTime = currentTime.toLocaleTimeString(undefined, hourOptions);
+  
+return (
+    <HeoreContainer darkMode={darkMode} active={props.show} >
+        <motion.div
+            drag
+            dragConstraints={{
+              top: -50,
+              left: -50,
+              right: 50,
+              bottom: 50,
+            }}>
+                {/* {formattedTime} */}
+        </motion.div>
+        {/* <div>{formattedTime}</div> */}
+    </HeoreContainer>
+  )
+}
 
-export default Heroe;
+export default Heroe

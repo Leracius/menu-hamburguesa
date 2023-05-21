@@ -6,9 +6,8 @@ export const PokeContainer = styled.div`
     margin-top: 10px;
     background-color: ${(props) => (props.darkMode ? '#202020' : 'white')};
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
-    border-radius: 15px;
     padding: 15px;
-    border: ${(props) => (props.darkMode ? '5px solid red' : '5px solid #4747ff')};
+    border-top: ${(props) => (props.darkMode ? '4px solid red' : '4px solid #4747ff')};
     transform: translateY(-400%);
     ${(props) => 
         props.active &&
@@ -30,14 +29,14 @@ export const InputContainer = styled.form`
     gap: 10px;
     input{
         border: none;
-        background-color: rgba(128, 128, 128, 0.512);
+        background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
         height: 30px;
-        width: 250px;
-        border-radius: 5px;   
+        width: 250px;  
         color: ${(props) => (props.darkMode ? 'white' : 'black')};
         padding: 5px;
         outline: none;
         padding-left: 10px;
+        transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     }
     button{
         background-color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
@@ -47,6 +46,7 @@ export const InputContainer = styled.form`
         border-radius: 5px;
         color:white;
         transform: rotate(180deg);
+        transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     }
 `
 
@@ -72,16 +72,12 @@ export const CardStyled = styled.div`
         transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
         text-align: center;
         h2{
+            transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
             font-size: 24px;
             margin-bottom: 10px;
             text-align: center;
-            /* width: 100%; */
-            background-color: rgba(128, 128, 128, 0.512);
-            border-radius: 5px;
-        }
-        p{
-            font-size: 16px;
-            text-align: center;
+            color: white;
+            background-color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
         }
     }
 ` 

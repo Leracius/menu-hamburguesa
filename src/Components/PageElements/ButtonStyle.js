@@ -30,8 +30,9 @@ export const StyledButton = styled.button`
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 2;
+        z-index: 10;
         cursor: pointer;
+
         
         h1{
         transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);

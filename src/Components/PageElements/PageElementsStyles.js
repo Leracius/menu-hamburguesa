@@ -17,13 +17,28 @@ export const HeaderStyled = styled(Container)`
   @media (max-width: 768px) {
     background-color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
   }
+  button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 50%;
+    color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
+    transform: ${(props) => (props.darkMode ? "rotate(0deg)" : 'rotate(180deg)')};
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+    cursor: pointer;
+    background-color: transparent;
+    @media (max-width: 768px) {
+          color: white;
+          right: 30px;
+        }
+  }
 `;
 
 export const FooterStyled = styled(Container)`
-  /* @media (max-width: 768px) {
-    display: hidden;
-    height: 0;
-  } */
   display: flex;
   justify-content: center;
 `;
@@ -39,10 +54,6 @@ export const MainStyled = styled.main`
   transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
   overflow-x: hidden;
   overflow-y: scroll;
-
-  @media (max-width: 768px) {
-    background-color: ${(props) => (props.darkMode ? 'black' : 'white')};
-  }
 `;
 
 

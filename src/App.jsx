@@ -9,32 +9,33 @@ import MenuBurguer from "./Components/MenuBurguer/MenuBurguer"
 // componentes
 import Card from './Components/Card/Card'
 import PokeCard from "./Components/PokeCard/PokeCard"
-import ThemeCard from './Components/Heroe/Heroe';
+import Heroe from './Components/Heroe/Heroe';
 
 // estado y funcion despachadora
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // estado de mi store
 import { toggleDarkMode } from './redux/Theme/ThemeSlice';
 
 // react-icons
-import { BsFillSunFill } from 'react-icons/bs'
-import { BsMoonStarsFill } from 'react-icons/bs'
 import { CgPokemon } from 'react-icons/cg'
 import { RiTodoLine } from 'react-icons/ri'
-
+import { BiHome } from 'react-icons/bi'
 
 const ActionTypes = {
   SHOW_CARD: 'SHOW_CARD',
-  SHOW_POKE: 'SHOW_POKE'
+  SHOW_POKE: 'SHOW_POKE',
+  SHOW_HEROE: 'SHOW_HEROE'
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case ActionTypes.SHOW_CARD:
-      return { showCard: true, showPoke: false };
+      return { showCard: true, showPoke: false, showHeroe: false };
     case ActionTypes.SHOW_POKE:
-      return { showCard: false, showPoke: true };
+      return { showCard: false, showPoke: true, showHeroe: false };
+    case ActionTypes.SHOW_HEROE:
+      return { showCard: false, showPoke: false, showHeroe: true };
     default:
       return state;
   }
@@ -43,7 +44,8 @@ const reducer = (state, action) => {
 function App() {
   const initialState = {
     showCard: false,
-    showPoke: false
+    showPoke: false,
+    showHeroe: false
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -56,35 +58,38 @@ function App() {
     dispatch({ type: ActionTypes.SHOW_POKE });
   };
 
+  const handleClickH = () => {
+    dispatch({ type: ActionTypes.SHOW_HEROE });
+  };
+
   const [on, setOn] = useState("")
 
   const handleClick = () =>{
     setOn(!on)
-    setTheme(toggleDarkMode())
   }
   
-  const setTheme = useDispatch()
   const darkMode = useSelector((state) => state.theme.darkMode)
   const count = useSelector((state) => state.theme.counter)
 
   return (
     <>
       <MenuBurguer></MenuBurguer>
-      <MainStyled  darkMode={darkMode} >
-
+      <MainStyled darkMode={darkMode}>
+        <Heroe show={state.showHeroe}></Heroe>
         <Card show={state.showCard}></Card>
         <PokeCard show={state.showPoke}></PokeCard>
-        {/* <ThemeCard></ThemeCard> */}
       </MainStyled>
       <FooterStyled darkMode={darkMode}>
-      <StyledCard>
-          
-          <StyledButton touched={on} darkMode={darkMode} onClick={handleClick}>
-            {darkMode ? <BsMoonStarsFill size={45} /> : <BsFillSunFill size={45} />}
+        <StyledCard>
+          <StyledButton darkMode={darkMode} touched={state.showHeroe} onClick={handleClickH}>
+            <BiHome size={52} />
           </StyledButton>
-          <StyledButton darkMode={darkMode} touched={state.showPoke} show onClick={handleClickP}><CgPokemon size={60}/></StyledButton>
-          <StyledButton darkMode={darkMode} touched={state.showCard} onClick={handleClickC}><RiTodoLine size={50} />
-            {count==0?"":<h1>{count}</h1>}
+          <StyledButton darkMode={darkMode} touched={state.showPoke} show onClick={handleClickP}>
+            <CgPokemon size={60} />
+          </StyledButton>
+          <StyledButton darkMode={darkMode} touched={state.showCard} onClick={handleClickC}>
+            <RiTodoLine size={50} />
+            {count !== 0 && <h1>{count}</h1>}
           </StyledButton>
         </StyledCard>
       </FooterStyled>
