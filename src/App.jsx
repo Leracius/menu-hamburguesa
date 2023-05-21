@@ -45,7 +45,7 @@ function App() {
   const initialState = {
     showCard: false,
     showPoke: false,
-    showHeroe: false
+    showHeroe: true
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);

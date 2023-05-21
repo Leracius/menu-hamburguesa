@@ -10,7 +10,7 @@ const lightModeStyles = css`
 
 export const CardContainer = styled.div`
 
-  margin: 10px 10px 50px 10px;
+  margin: 0px 10px 50px 10px;
   ${(props) => (props.darkMode ? darkModeStyles : lightModeStyles)}
   padding: 20px 20px 40px 20px;
   border-top: ${(props) => (props.darkMode ? '4px solid red' : '4px solid #4747ff')};
@@ -20,7 +20,7 @@ export const CardContainer = styled.div`
 
   @media (max-width: 768px) {
     border: none;
-    margin: 10px 10px 300px 10px;
+    margin: 0px 10px 300px 10px;
     width: 100%;
   }
 
@@ -47,6 +47,9 @@ export const CardStyled = styled.div`
     outline: none;
     padding-left: 10px;
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+    @media (max-width: 768px) {
+    width: 300px;
+  }
   }
 `;
 
@@ -62,7 +65,7 @@ export const CardText = styled.h1`
 
 export const CardNote = styled.div`
   transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
-  width: 90%;
+  width: 80%;
   background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
   border-radius: 5px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -71,7 +74,7 @@ export const CardNote = styled.div`
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   max-width: 600px;
 
 
@@ -81,6 +84,7 @@ export const CardNote = styled.div`
   }
 
   h1 {
+    display: block;
     margin: 0;
     padding: 0;
     font-size: 20px;

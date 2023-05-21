@@ -49,9 +49,6 @@ export const StyledButton = styled.button`
         background-color: ${(props) => (props.darkMode ? 'red' :'#4747ff')};
         border-radius: 15px;
         padding: 0;
-          @media (max-width: 768px) {
-            color: transparent;
-          }
         }
 
         ${(props) => 
