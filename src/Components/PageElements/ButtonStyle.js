@@ -10,7 +10,6 @@ export const StyledCard = styled.div`
     justify-content: space-between;
     align-items: center;
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
-
     /* @media (max-width: 768px){
       border: 5px solid #4747ff;
       border-radius: 15px;
@@ -32,7 +31,6 @@ export const StyledButton = styled.button`
         align-items: center;
         z-index: 10;
         cursor: pointer;
-
         
         h1{
         transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);

@@ -34,7 +34,7 @@ return (
               right: 50,
               bottom: 50,
             }}>
-                {/* {formattedTime} */}
+                {formattedTime}
         </motion.div>
         {/* <div>{formattedTime}</div> */}
     </HeoreContainer>

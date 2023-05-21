@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { css } from "styled-components";
 
 export const HeoreContainer = styled.div`
-    background-image: url("https://i.pinimg.com/originals/eb/9a/27/eb9a27715049846b7f1d4d416b2c3cb7.gif");
+    background-image :${(props) => (props.darkMode ? 'url("https://i.pinimg.com/originals/84/1d/a0/841da07e3f8a2990c3fd7318a346725d.gif")' : 'url("https://i.pinimg.com/564x/f0/10/0a/f0100a85178202b83a65cd796495a61b.jpg")')};
     background-size: contain;
     margin-top: 20px;
     background-color: ${(props) => (props.darkMode ? '#202020' : 'white')};
@@ -13,8 +13,8 @@ export const HeoreContainer = styled.div`
     z-index: -3;
     z-index: 90;
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     position: absolute;
     transform: translateY(-400%);
@@ -32,12 +32,15 @@ export const HeoreContainer = styled.div`
         background-image: url("https://i.pinimg.com/originals/7f/2c/50/7f2c5092eb778b3423f634055ffea540.gif");
         width: 100px;
         height: 100px;
-        font-size: 28px;
-        font-weight: 500;
+        font-size: 32px;
+        font-weight: 900;
         margin: 10px;
         display: flex;
         padding: 5px;
-        color: ${(props) => (props.darkMode ? 'red' : '#4747ff')};
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        -webkit-text-stroke: 1px black;
+        /* color: ${(props) => (props.darkMode ? 'red' : '#4747ff')}; */
         display: flex;
         align-items: center; 
         flex-direction:column;
