@@ -69,7 +69,7 @@ export const CardNote = styled.div`
   background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
   border-radius: 5px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   margin-top: 20px;
   display: flex;
@@ -84,7 +84,10 @@ export const CardNote = styled.div`
   }
 
   h1 {
-    display: block;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    align-items: center;
     margin: 0;
     padding: 0;
     font-size: 20px;

@@ -58,6 +58,7 @@ function App() {
     dispatch({ type: ActionTypes.SHOW_POKE });
   };
 
+  
   const handleClickH = () => {
     dispatch({ type: ActionTypes.SHOW_HEROE });
   };

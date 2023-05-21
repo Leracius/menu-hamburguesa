@@ -115,7 +115,7 @@ const Card = (props) => {
               </button>
             </CardNote>
           );
-        })}
+        }).reverse()};
       </CardStyled>
     </CardContainer>
   );
