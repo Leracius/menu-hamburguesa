@@ -38,7 +38,6 @@ export const HeoreContainer = styled.div`
         display: flex;
         padding: 5px;
         color: white;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         -webkit-text-stroke: 1px black;
         /* color: ${(props) => (props.darkMode ? 'red' : '#4747ff')}; */
         display: flex;

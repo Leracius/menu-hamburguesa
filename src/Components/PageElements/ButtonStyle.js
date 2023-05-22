@@ -34,18 +34,19 @@ export const StyledButton = styled.button`
         
         h1{
         transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+        display: flex;
         justify-content: center;
         align-items: center ;
-        font-size: 14px;
-        width: 20px;
-        height: 20px;
+        font-size: 12px;
+        width: 18px;
+        height: 18px;
         position: absolute;
         top: 0;
         right: 0;
         color: white;
         border: 3px solid white;
         background-color: ${(props) => (props.darkMode ? 'red' :'#4747ff')};
-        border-radius: 15px;
+        border-radius: 50%;
         padding: 0;
         }
 
