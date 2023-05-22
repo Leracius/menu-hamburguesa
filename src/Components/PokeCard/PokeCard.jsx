@@ -3,7 +3,8 @@ import { CardStyled, InputContainer, PokeContainer } from './PokeCardStyles';
 import { MdOutlineCatchingPokemon } from "react-icons/md";
 import axios from "axios";
 import Josh from '../Josh/Josh';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { togglePath } from "../../redux/Theme/ThemeSlice";
 
 const PokeCard = (props) => {
   const isActive = props.show;
@@ -13,6 +14,8 @@ const PokeCard = (props) => {
   const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState(false);
   const darkMode = useSelector((state) => state.theme.darkMode);
+  const [path, setPath] = useState("")
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const lastPokemon = localStorage.getItem('lastPokemon');
@@ -25,6 +28,7 @@ const PokeCard = (props) => {
   useEffect(() => {
     if (data) {
       localStorage.setItem('lastPokemon', JSON.stringify(data));
+      handlePath(data.sprites.front_default)
     }
   }, [data]);
 
@@ -44,10 +48,14 @@ const PokeCard = (props) => {
         setIsloading(false);
       } else {
         const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`);
+
+        
         setData(data);
         setError(false);
         setIsloading(false);
         setJoshEnable(false);
+        setPath(data.sprites.front_default)
+        
       }
     } catch (err) {
       setError("Pokemon no encontrado");
@@ -55,12 +63,18 @@ const PokeCard = (props) => {
       setJoshEnable(false);
       setData(false);
     }
+
   }
+
+  const direccion = useSelector((state)=>state.theme.pokepath)
 
   const { name, order, sprites, types, stats } = data;
 
-  console.log(data);
-
+  const handlePath = () =>{
+    dispatch(togglePath(data.sprites.front_default.toString()))
+    console.log(direccion);
+  }
+ 
   return (
     <PokeContainer darkMode={darkMode}  active={isActive}>
       <CardStyled darkMode={darkMode}>
@@ -81,7 +95,6 @@ const PokeCard = (props) => {
         }
         {error && <Josh message={"No se encontró el pokemon, prueba con un número del 1 al 905, o busca por su nombre"} active={true}></Josh>}
       </CardStyled>
-    
       <InputContainer darkMode={darkMode}
         onSubmit={(e) => {
           handleSubmit(e, pokemon);
@@ -94,7 +107,7 @@ const PokeCard = (props) => {
           onChange={(e) => setPokemon(e.target.value)}
         />
         <button type='submit'><MdOutlineCatchingPokemon size={24}/></button>
-      </InputContainer>   
+      </InputContainer>
     </PokeContainer>
   );
 }

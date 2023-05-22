@@ -9,6 +9,10 @@ export const PokeContainer = styled.div`
     padding: 15px;
     border-top: ${(props) => (props.darkMode ? '4px solid red' : '4px solid #4747ff')};
     transform: translateY(-400%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     ${(props) => 
         props.active &&
         css`
@@ -17,6 +21,10 @@ export const PokeContainer = styled.div`
 
         `
     }
+`
+export const PokeFloatStyled = styled.img`
+    border: 1px solid black;
+    position: absolute;
 `
 
 export const InputContainer = styled.form`
@@ -63,9 +71,9 @@ export const CardStyled = styled.div`
         position: absolute;
         height: 300px;
         border-radius: 5px;
-        /* transform: scale(1.3) ;
+        transform: scale(1.3) ;
         -webkit-transform: scale(1.3) ;
-        -moz-transform: scale(1.3) ; */
+        -moz-transform: scale(1.3) ;
         z-index: -1;
     }
     div{

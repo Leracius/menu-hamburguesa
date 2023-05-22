@@ -5,6 +5,7 @@ const themeSlice = createSlice({
   initialState: {
     darkMode: false,
     counter: 0,
+    pokepath: "",
   },
   reducers: {
     toggleDarkMode: (state) => {
@@ -13,8 +14,11 @@ const themeSlice = createSlice({
     incrementCounter: (state, action) => {
       state.counter = action.payload;
     },
+    togglePath: (state, action) => {
+      state.pokepath = action.payload
+    },
   },
 });
 
-export const { toggleDarkMode, incrementCounter } = themeSlice.actions;
+export const { toggleDarkMode, incrementCounter, togglePath } = themeSlice.actions;
 export default themeSlice.reducer;
