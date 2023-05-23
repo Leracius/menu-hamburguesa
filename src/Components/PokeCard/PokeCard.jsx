@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CardStyled, InputContainer, PokeContainer } from './PokeCardStyles';
+import { CardStyled, ImgStyled, InputContainer, PokeContainer } from './PokeCardStyles';
 import { MdOutlineCatchingPokemon } from "react-icons/md";
 import axios from "axios";
 import Josh from '../Josh/Josh';
@@ -86,14 +86,14 @@ const PokeCard = (props) => {
         }
         {data &&
           <>
-            <img src={sprites.other.home.front_default}></img>
+            <ImgStyled src={sprites.other.home.front_default}></ImgStyled >
             <div>
               <h2>{name.toUpperCase()}</h2>
               {/* <p>{types[0].type.name.toUpperCase()}</p> */}
             </div>  
           </>   
         }
-        {error && <Josh message={"No se encontró el pokemon, prueba con un número del 1 al 905, o busca por su nombre"} active={true}></Josh>}
+        {error && <Josh message={"No se encontró el pokemon, prueba con un número del 1 al 905, o busca por su nombre"} active></Josh>}
       </CardStyled>
       <InputContainer darkMode={darkMode}
         onSubmit={(e) => {

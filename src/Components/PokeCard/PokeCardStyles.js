@@ -58,6 +58,28 @@ export const InputContainer = styled.form`
     }
 `
 
+export const ImgStyled = styled.img`
+
+    position: absolute;
+    height: 300px;
+    border-radius: 5px;
+     z-index: 1;
+     animation: infinite-scale 2s ease-in-out; 
+
+     @keyframes infinite-scale {
+        0% {
+             transform: scale(1);
+            }
+        50% {
+            transform: scale(2); 
+            }
+        100% {
+            transform: scale(1); 
+        }
+    }
+ 
+`
+
 export const CardStyled = styled.div`
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     display: flex;
@@ -67,15 +89,7 @@ export const CardStyled = styled.div`
     border-radius: 10px;
     padding: 10px;
     color: ${(props) => (props.darkMode ? 'white' : '#202020')};
-    img{
-        position: absolute;
-        height: 300px;
-        border-radius: 5px;
-        transform: scale(1.3) ;
-        -webkit-transform: scale(1.3) ;
-        -moz-transform: scale(1.3) ;
-        z-index: -1;
-    }
+
     div{
         transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
         text-align: center;

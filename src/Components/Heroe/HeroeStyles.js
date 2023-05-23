@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { css } from "styled-components";
 
 export const HeoreContainer = styled.div`
-    background-image :${(props) => (props.darkMode ? 'url("https://i.pinimg.com/originals/84/1d/a0/841da07e3f8a2990c3fd7318a346725d.gif")' : 'url("https://i.pinimg.com/564x/f0/10/0a/f0100a85178202b83a65cd796495a61b.jpg")')};
-    background-size: contain;
+    background-image :${(props) => (props.darkMode ? 'url("https://i.pinimg.com/originals/84/1d/a0/841da07e3f8a2990c3fd7318a346725d.gif")' : 'url("https://i.pinimg.com/originals/66/79/6d/66796dc4ff0ca03f74bd8d9e3fe129b6.gif")' )};
+    background-size: cover;
     margin-top: 20px;
     background-color: ${(props) => (props.darkMode ? '#202020' : 'white')};
     border-bottom: ${(props) => (props.darkMode ? '4px solid red' : '4px solid #4747ff')};

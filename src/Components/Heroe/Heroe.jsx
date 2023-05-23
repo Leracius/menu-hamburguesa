@@ -27,18 +27,6 @@ const Heroe = (props) => {
   
 return (
     <HeoreContainer darkMode={darkMode} active={props.show} >
-        <motion.img
-            
-            src={direccion==""?"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png":direccion}
-            drag
-            dragConstraints={{
-              top: -50,
-              left: -50,
-              right: 50,
-              bottom: 50,
-            }}>
-        </motion.img>
-        
         <motion.div
             drag
             dragConstraints={{
@@ -49,7 +37,16 @@ return (
             }}>
                 {formattedTime}
         </motion.div>
-        {/* <div>{formattedTime}</div> */}
+        <motion.img
+            src={direccion==""?"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png":direccion}
+            drag
+            dragConstraints={{
+              top: -50,
+              left: -50,
+              right: 50,
+              bottom: 50,
+            }}>
+        </motion.img>
     </HeoreContainer>
   )
 }
