@@ -12,7 +12,7 @@ export const CardContainer = styled.div`
 
   margin: 0px 10px 50px 10px;
   ${(props) => (props.darkMode ? darkModeStyles : lightModeStyles)}
-  padding: 20px 20px 40px 20px;
+  padding: 10px 10px 40px 10px;
   border-top: ${(props) => (props.darkMode ? '4px solid red' : '4px solid #4747ff')};
   transform: translateY(-200%);
   transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
@@ -39,14 +39,16 @@ export const CardStyled = styled.div`
 
   input {
     border: none;
+    font-size: 20px;
     background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
     height: 30px;
     width: 250px;
     color: ${(props) => (props.darkMode ? 'white' : 'black')};
-    padding: 5px;
+    padding: 10px;
     outline: none;
     padding-left: 10px;
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+    border-radius: 5px;
     @media (max-width: 768px) {
     width: 300px;
   }
@@ -69,7 +71,7 @@ export const CardNote = styled.div`
   background-color: ${(props) => (props.darkMode ? 'black' : 'gainsboro')};
   border-radius: 5px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding: 20px;
+  padding: 5px;
   text-align: center;
   margin-top: 20px;
   display: flex;

@@ -78,7 +78,7 @@ const PokeCard = (props) => {
   return (
     <PokeContainer darkMode={darkMode}  active={isActive}>
       <CardStyled darkMode={darkMode}>
-        {joshEnable && <Josh message={"BUSCA TU POKEMON"} active={true}></Josh>}
+        {joshEnable && <Josh message={"BUSCA TU POKEMON, SI ENCUENTRAS UNO, LO PODRAS VER EN HOME 😎"} active={true}></Josh>}
         {isLoading && 
           <>
             <img src='https://i.pinimg.com/originals/62/b4/d2/62b4d21eb045a1cfb5da1e667fd7a6eb.gif'/>
